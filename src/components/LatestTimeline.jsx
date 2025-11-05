@@ -23,7 +23,7 @@ export default function LatestTimeline() {
   return (
     <Card
       sx={{
-        background: "#fff",
+        background: "#FFFADC",
         borderRadius: 2,
         boxShadow: 4,
         p: 2,
@@ -52,7 +52,7 @@ export default function LatestTimeline() {
           sx={{
             mb: 2.5,
             p: 1,
-            borderLeft: "3px solid #1976d2",
+            borderLeft: "3px solid #d26319ff",
             pl: 2,
           }}
         >

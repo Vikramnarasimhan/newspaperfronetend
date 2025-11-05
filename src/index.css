@@ -1,14 +1,50 @@
-/* index.css */
-
-/* You can add global CSS resets or fonts here if needed */
-body {
-  margin: 0;
+.ticker-bar {
+  position: relative;
+  background: #e6750c;
+  color: #fff;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  overflow: hidden; /* hides text outside area */
+  padding: 0 0.5rem;
+  width: 100%;
   font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
-  background-color: #fff;
+  border-bottom: 2px solid #d95d1a;
+  z-index: 1201;
 }
 
-/* Optional: fix link styles */
-a {
-  text-decoration: none;
-  color: inherit;
+.ticker-live {
+  background: #e45f13;
+  color: #fff;
+  font-weight: bolder;
+  border-radius: 3px;
+  padding: 0 12px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  font-size: 0.97rem;
+  letter-spacing: 1.5px;
+  z-index: 2;
+  position: relative;
+}
+
+.ticker-text {
+  display: inline-block;
+  white-space: nowrap;
+  font-size: 1rem;
+  line-height: 32px;
+  padding-left: 1rem;
+  animation: ticker-move 22s linear infinite;
+  will-change: transform;
+  z-index: 1;
+}
+
+/* The smooth continuous movement */
+@keyframes ticker-move {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }

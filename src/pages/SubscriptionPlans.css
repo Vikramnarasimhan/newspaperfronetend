@@ -1,0 +1,135 @@
+.plans-container {
+  text-align: center;
+  font-family: "Segoe UI", "Inter", "Poppins", sans-serif;
+  padding: 40px 20px;
+  background: #FFFADC; /* Soft pastel yellow */
+}
+
+h1 {
+  margin-bottom: 42px;
+  color: #be4c04; /* Warm brown-orange for headlines */
+  font-weight: 700;
+  font-size: 2.1rem;
+  letter-spacing: 0.3px;
+}
+
+.plans-grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.plan-card {
+  width: 315px;
+  background: #fff9e5; /* Light cream background */
+  border-radius: 18px;
+  box-shadow: 0 6px 18px rgba(230, 170, 7, 0.10); /* subtle orange shadow */
+  padding: 28px 22px;
+  transition: all 0.25s ease;
+  position: relative;
+  border: 2.5px solid #f9e0ac55;
+}
+
+.plan-card:hover {
+  transform: translateY(-5px) scale(1.024);
+  box-shadow: 0 10px 30px rgba(230,170,7,0.24);
+  border-color: #ffd04b;
+}
+
+.plan-card h2 {
+  color: #e6aa07ff; /* Bright highlight orange */
+  margin-bottom: 13px;
+  font-weight: 700;
+  font-size: 1.45rem;
+  letter-spacing: 0.2px;
+}
+
+.price {
+  font-size: 23px;
+  font-weight: bold;
+  color: #d16d15; /* Rich earthy orange */
+  margin-bottom: 17px;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 22px;
+  text-align: left;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: #7b5310;
+}
+
+.btn-free,
+.btn-monthly,
+.btn-yearly {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 9px;
+  font-weight: bold;
+  color: #FFFADC;
+  cursor: pointer;
+  font-size: 15.5px;
+  transition: box-shadow 0.2s, background 0.22s;
+  box-shadow: 0 4px 16px #FFD16644;
+}
+
+.btn-free {
+  background-color: #e6aa07ff; /* Orange */
+}
+
+.btn-free:hover {
+  background-color: #be4c04;
+  box-shadow: 0 6px 24px #ffd16699;
+}
+
+.btn-monthly {
+  background: linear-gradient(90deg, #f9e0ac, #e6aa07ff 78%);
+  color: #7b5310;
+}
+
+.btn-monthly:hover {
+  background: linear-gradient(90deg, #e6aa07ff, #FFD166);
+  color: #FFFADC;
+}
+
+.btn-yearly {
+  background: linear-gradient(90deg, #ffd166 0%, #ffb176 90%);
+  color: #be4c04;
+}
+
+.btn-yearly:hover {
+  background: linear-gradient(90deg, #ffd166, #e6aa07ff 92%);
+  color: #FFFADC;
+}
+
+.highlight {
+  border: 2.5px solid #e6aa07ff;
+  transform: scale(1.048);
+  box-shadow: 0 12px 42px #e6aa0766;
+}
+
+.badge {
+  background-color: #d16d15;
+  color: #FFFADC;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 5px 12px;
+  border-radius: 50px;
+  position: absolute;
+  top: -16px;
+  right: -16px;
+  box-shadow: 0 2px 12px #ffd16666;
+  letter-spacing: 0.1px;
+}
+
+@media (max-width: 900px) {
+  .plans-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 22px;
+  }
+}

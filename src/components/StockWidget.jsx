@@ -12,7 +12,7 @@ export default function StockWidget() {
   return (
     <Card
       sx={{
-        background: '#fff',
+        background: '#FFFADC',
         p: 1,
         borderRadius: 2,
         boxShadow: 2,
@@ -50,7 +50,7 @@ export default function StockWidget() {
               p: 1,
             }}
           >
-            <Typography color="error" fontWeight="bold" fontSize="0.95rem">
+            <Typography color="red" fontWeight="bold" fontSize="0.95rem">
               {s.name}
             </Typography>
             <Typography color="error" fontSize="0.92rem">
