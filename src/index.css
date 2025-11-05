@@ -1,0 +1,14 @@
+/* index.css */
+
+/* You can add global CSS resets or fonts here if needed */
+body {
+  margin: 0;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
+  background-color: #fff;
+}
+
+/* Optional: fix link styles */
+a {
+  text-decoration: none;
+  color: inherit;
+}
