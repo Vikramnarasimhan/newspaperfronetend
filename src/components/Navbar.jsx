@@ -7,6 +7,7 @@ import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import Drawer from "@mui/material/Drawer";
 import Box from "@mui/material/Box";
+import Stack from "@mui/material/Stack";
 import { useNavigate } from "react-router-dom";
 
 export default function Navbar() {
@@ -26,9 +27,7 @@ export default function Navbar() {
             );
             const data = await res.json();
             setLocation(
-              `${data.city || data.locality || "Unknown"}, ${
-                data.countryName || ""
-              }`
+              `${data.city || data.locality || "Unknown"}, ${data.countryName || ""}`
             );
           } catch {
             setError("Unable to fetch location name");
@@ -64,127 +63,124 @@ export default function Navbar() {
           color: "#6D2323",
         }}
       >
-        <Toolbar>
-          {/* 🍔 Menu Icon */}
-          <IconButton
-            edge="start"
-            aria-label="menu"
-            onClick={() => setDrawerOpen(true)}
-            sx={{ color: "#e6aa07ff", mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
+        <Toolbar sx={{ display: "flex", justifyContent: "space-between" }}>
+          <Stack direction="row" alignItems="center" spacing={1}>
+            {/* Hamburger Menu */}
+            <IconButton
+              edge="start"
+              aria-label="menu"
+              onClick={() => setDrawerOpen(true)}
+              sx={{ color: "#e6aa07ff" }}
+            >
+              <MenuIcon />
+            </IconButton>
 
-          {/* 📍 Live Location Widget */}
-          <Box
-            sx={{
-              display: "flex",
-              alignItems: "center",
-              gap: 1,
-              color: "#6D2323",
-              background: "#fff5cc",
-              px: 2,
-              py: 0.6,
-              borderRadius: "10px",
-              fontWeight: "bold",
-              fontSize: "0.9rem",
-              boxShadow: "inset 0 0 4px rgba(0,0,0,0.1)",
-            }}
-          >
-            <span style={{ fontSize: "1.1rem" }}>📍</span>
-            <Typography sx={{ fontSize: 13, fontWeight: 600 }}>
-              {error ? error : location}
-            </Typography>
-          </Box>
+            {/* Location */}
+            <Box
+              sx={{
+                display: { xs: "none", sm: "flex" },
+                alignItems: "center",
+                gap: 1,
+                background: "#fff5cc",
+                px: 2,
+                py: 0.5,
+                borderRadius: "10px",
+                fontWeight: 600,
+                fontSize: "0.9rem",
+                boxShadow: "inset 0 0 4px rgba(0,0,0,0.1)",
+              }}
+            >
+              <span style={{ fontSize: "1.1rem" }}>📍</span>
+              <Typography sx={{ fontSize: 13, fontWeight: 700 }}>
+                {error ? error : location}
+              </Typography>
+            </Box>
+          </Stack>
 
-          {/* 📰 Logo */}
+          {/* Logo/Brand */}
           <Typography
             variant="h6"
             sx={{
-              flexGrow: 1,
-              textAlign: "center",
               fontWeight: "bold",
+              textAlign: "center",
+              flexGrow: 1,
+              letterSpacing: 2,
             }}
           >
-            <span
-              style={{
-                background: "#e6aa07ff",
-                color: "#FFFADC",
-                padding: "0 12px",
-                borderRadius: "4px",
-                marginRight: "4px",
-              }}
-            >
-              M
-            </span>
-            <span
-              style={{
-                background: "#e6aa07ff",
-                color: "#FFFADC",
-                padding: "0 12px",
-                borderRadius: "4px",
-                marginRight: "4px",
-              }}
-            >
-              I
-            </span>
-            <span
-              style={{
-                background: "#e6aa07ff",
-                color: "#FFFADC",
-                padding: "0 12px",
-                borderRadius: "4px",
-              }}
-            >
-              D
-            </span>
+            <span style={{
+              background: "#e6aa07ff",
+              color: "#FFFADC",
+              padding: "0 12px",
+              borderRadius: "4px",
+              marginRight: "4px",
+            }}>M</span>
+            <span style={{
+              background: "#e6aa07ff",
+              color: "#FFFADC",
+              padding: "0 12px",
+              borderRadius: "4px",
+              marginRight: "4px",
+            }}>I</span>
+            <span style={{
+              background: "#e6aa07ff",
+              color: "#FFFADC",
+              padding: "0 12px",
+              borderRadius: "4px",
+            }}>D</span>
           </Typography>
 
-          {/* Buttons */}
-          <Button
-            variant="contained"
-            sx={{
-              mr: 1,
-              backgroundColor: "#e6aa07ff",
-              color: "#FFFADC",
-              fontWeight: "bold",
-              "&:hover": { backgroundColor: "#e6aa07ff" },
-            }}
-            onClick={() => navigate("/plans")}  // ✅ Navigate to plans page on click
-          >
-            Subscribe
-          </Button>
-          <Button
-            variant="outlined"
-            sx={{
-              borderColor: "#e6aa07ff",
-              color: "#e6aa07ff",
-              fontWeight: "bold",
-              "&:hover": { borderColor: "#e6aa07ff", color: "#e6aa07ff" },
-            }}
-          >
-            Sign In
-          </Button>
+          {/* Actions */}
+          <Stack direction="row" spacing={1}>
+            <Button
+              variant="contained"
+              sx={{
+                backgroundColor: "#e6aa07ff",
+                color: "#FFFADC",
+                fontWeight: "bold",
+                "&:hover": { backgroundColor: "#e6aa07ff" },
+              }}
+              onClick={() => navigate("/plans")}
+            >
+              Subscribe
+            </Button>
+            <Button
+              variant="outlined"
+              sx={{
+                borderColor: "#e6aa07ff",
+                color: "#e6aa07ff",
+                fontWeight: "bold",
+                "&:hover": { borderColor: "#e6aa07ff", color: "#e6aa07ff" },
+              }}
+              onClick={() => navigate("/signin")}
+            >
+              Sign In
+            </Button>
+          </Stack>
         </Toolbar>
-
-        {/* 🔸 Secondary Navbar */}
+        {/* Secondary menu: collapse on small screens */}
         <Toolbar
           variant="dense"
           sx={{
             justifyContent: "center",
+            gap: 1,
+            overflowX: "auto",
             background: "#FFFADC",
             color: "#6D2323",
+            display: { xs: "none", sm: "flex" },
+            minHeight: 40,
+            px: 0,
           }}
         >
           {menuItems.map((link) => (
             <Button
               key={link}
               sx={{
-                mx: 1,
                 color: "#6D2323",
                 fontWeight: "bold",
                 "&:hover": { backgroundColor: "#e6aa07ff", color: "#FFFADC" },
                 textTransform: "none",
+                px: 1.5,
+                minWidth: 80,
               }}
             >
               {link}
@@ -192,8 +188,7 @@ export default function Navbar() {
           ))}
         </Toolbar>
       </AppBar>
-
-      {/* 🟨 Drawer (opens on hamburger click) */}
+      {/* Drawer for mobile view */}
       <Drawer
         anchor="left"
         open={drawerOpen}
@@ -214,19 +209,16 @@ export default function Navbar() {
           >
             MENU
           </Typography>
-          {menuItems.map((text, index) => (
+          {menuItems.map((text, idx) => (
             <Button
-              key={index}
+              key={idx}
               fullWidth
               sx={{
                 justifyContent: "flex-start",
                 color: "#6D2323",
                 fontWeight: "bold",
                 mb: 0.5,
-                "&:hover": {
-                  backgroundColor: "#e6aa07ff",
-                  color: "#FFFADC",
-                },
+                "&:hover": { backgroundColor: "#e6aa07ff", color: "#FFFADC" },
                 textTransform: "none",
               }}
             >
@@ -235,6 +227,7 @@ export default function Navbar() {
           ))}
         </Box>
       </Drawer>
+      {/* /*<Box sx={{ height: 110 }} /> */}
     </>
   );
 }

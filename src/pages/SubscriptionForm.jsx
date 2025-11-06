@@ -15,6 +15,8 @@ function SubscriptionForm() {
     "Finance",
     "Defence",
     "Regional",
+    "Main Page"
+    
   ];
 
   const [selectedCategories, setSelectedCategories] = useState([]);
@@ -27,7 +29,7 @@ function SubscriptionForm() {
     if (plan === "monthly") {
       price = selectedCategories.length * 99;
     } else if (plan === "yearly") {
-      price = selectedCategories.length * 399;
+      price = selectedCategories.length * 379;
     } else {
       price = 0; // Free Trial is always ₹0
     }

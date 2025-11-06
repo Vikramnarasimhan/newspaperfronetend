@@ -14,7 +14,7 @@ export default function LiveTicker() {
       className="ticker-bar"
       sx={{
         position: "fixed",
-        top: 110, // 👈 adjust depending on your Navbar height
+        top: 100, // 👈 adjust depending on your Navbar height
         left: 0,
         width: "100%",
         zIndex: 1100,

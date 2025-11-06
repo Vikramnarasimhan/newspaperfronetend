@@ -15,25 +15,12 @@ function PricingPlans() {
 
       <div className="plans-grid">
         {/* ===== Free Plan ===== */}
-        <div className="plan-card free">
-          <h2>Free Trial</h2>
-          <p className="price">₹0 / month</p>
-          <ul>
-            <li>✔ Access to limited articles</li>
-            <li>✔ 1 category access only</li>
-            <li>❌ No offline downloads</li>
-            <li>❌ No premium insights</li>
-            <li>❌ No personalized recommendations</li>
-          </ul>
-          <button onClick={() => goToSubscribe("free")} className="btn-free">
-            Continue with Free Trial
-          </button>
-        </div>
+        
 
         {/* ===== Monthly Plan ===== */}
         <div className="plan-card monthly">
           <h2>Monthly Plan</h2>
-          <p className="price">₹99 / category / month</p>
+          <p className="price">₹94 / category / month</p>
           <ul>
             <li>✔ Full access to all selected categories</li>
             <li>✔ Offline downloads</li>
@@ -53,7 +40,7 @@ function PricingPlans() {
         <div className="plan-card yearly highlight">
           <div className="badge">🔥 Best Value</div>
           <h2>Yearly Plan</h2>
-          <p className="price">₹399 / category / year</p>
+          <p className="price">₹442 / category / year</p>
           <ul>
             <li>✔ Unlimited category access</li>
             <li>✔ Offline downloads + Analytics</li>

@@ -18,6 +18,10 @@ import StateUpdates from "./components/StateUpdates";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import SubscriptionPlans from "./pages/SubscriptionPlans";
 import SubscriptionForm from "./pages/SubscriptionForm";
+import GoogleSignIn from "./components/GoogleSignIn";
+
+
+
 
 function MainPageContent() {
   return (
@@ -31,7 +35,7 @@ function MainPageContent() {
       <Navbar />
       <LiveTicker />
 
-      <div style={{ marginTop: 148 }}>
+      <div style={{ marginTop: 150 }}>
         {/* 🔸 Full-width Top Ad Banner */}
         <Card
           sx={{
@@ -161,6 +165,7 @@ export default function App() {
         {/* Subscription pages */}
         <Route path="/plans" element={<SubscriptionPlans />} />
         <Route path="/subscribe" element={<SubscriptionForm />} />
+        <Route path="/signin" element={<GoogleSignIn />} />
       </Routes>
     </Router>
   );
